@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block body %}
+<h1>로그인</h1>
+{{ request.user }}
+
+<script>
+$(document).ready(function () {
+$('#logout').click(function() {
+    $.get('/apis/v1/users/logout/', {}, function() {
+       location.reload();
+    })
+});
+});
+</script>
+{% endblock %}

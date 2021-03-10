@@ -5,7 +5,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views import View
 from django.contrib.auth.models import User
 from django.db import IntegrityError
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+
 
 class BaseView(View):
     @staticmethod
@@ -55,3 +56,8 @@ class UserLoginView(BaseView):
         login(request, user)
 
         return self.response
+
+class UserLogoutView(BaseView):
+    def get(self, request):
+        logout(request)
+        return self.response()
