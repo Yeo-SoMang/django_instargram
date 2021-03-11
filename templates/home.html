@@ -29,7 +29,7 @@ crossorigin="anonymous"></script>
 
 <br>
 <div id="formContainer">
-    <form action="{% url 'apis_v1_content_create' %}" class="dropzone" id="uploader" style="background-color:whitesmoke;">
+    <form action="{% url 'api_v1_content_create' %}" class="dropzone" id="uploader" style="background-color:whitesmoke;">
         <div class="dz-message" data-dz-message><span>드래그 드랍하거나 클릭하여 이미지 선택</span></div>
         <div class="fallback">
             <input name="file" type="file" />
@@ -109,7 +109,7 @@ myDropZone.on("sending", function(file, xhr, data) {
 */
 
 $('#logout').click(function () {
-    $.get('/apis/v1/users/logout/', {}, function() {
+    $.get('/api/v1/users/logout/', {}, function() {
       location.reload();
     });
 });

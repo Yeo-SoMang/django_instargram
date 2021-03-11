@@ -52,7 +52,7 @@ crossorigin="anonymous"></script>
 $(document).ready(function(){
 
   $('#logout').click(function () {
-      $.get('/apis/v1/users/logout/', {}, function() {
+      $.get('/api/v1/users/logout/', {}, function() {
         location.reload();
       });
   });
@@ -61,7 +61,7 @@ $(document).ready(function(){
   var followeesIds = {{ followees_ids }};
   $('#search').click(function () {
      var username = $('#searchUserName').val();
-     $.get("{% url 'apis_v1_user_get' %}", {username: username}, function(obj) {
+     $.get("{% url 'api_v1_user_get' %}", {username: username}, function(obj) {
         $('#searchResult').html(obj.data.username);
 
         var $searchRelationButton = $('#searchFollow button');
@@ -85,7 +85,7 @@ $(document).ready(function(){
 
   $('body').delegate('.follow', 'click', function(e) {
     var userId = $(e.currentTarget).data('user-id');
-    $.post("{% url 'apis_v1_relation_create' %}", {id: userId}, function(){
+    $.post("{% url 'api_v1_relation_create' %}", {id: userId}, function(){
         location.reload();
     }).fail(function(data) {
         alert(data.responseJSON.message);
@@ -94,7 +94,7 @@ $(document).ready(function(){
 
   $('body').delegate('.unfollow', 'click', function(e) {
     var userId = $(e.currentTarget).data('user-id');
-    $.post("{% url 'apis_v1_relation_delete' %}", {id: userId}, function(){
+    $.post("{% url 'api_v1_relation_delete' %}", {id: userId}, function(){
         location.reload();
     }).fail(function(data) {
         alert(data.responseJSON.message);

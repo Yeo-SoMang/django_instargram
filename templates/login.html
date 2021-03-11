@@ -33,13 +33,13 @@
 
 <script>
 $(document).ready(function () {
-$('#loginButton').click(function() {
-    $.post('/apis/v1/users/login/', {'username': $('#username').val(), 'password': $('#password').val()}, function() {
-       window.location = '/';
-    }).fail(function(data) {
-        alert(data.responseJSON.message);
+    $('#loginButton').click(function() {
+        $.post('/api/v1/users/login/', {'username': $('#username').val(), 'password': $('#password').val()}, function() {
+           window.location = '/';
+        }).fail(function(data) {
+            alert(data.responseJSON.message);
+        });
     });
-});
 });
 </script>
 {% endblock %}
