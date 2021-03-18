@@ -42,7 +42,8 @@ INSTALLED_APPS = [
 INSTALLED_APPS += [
     'api',
     'contents',
-    'debug_toolbar'
+    'debug_toolbar',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -81,14 +82,6 @@ WSGI_APPLICATION = 'instargram.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -121,6 +114,15 @@ USE_L10N = True
 
 USE_TZ = True
 
+# AWS S3
+AWS_ACCESS_KEY_ID =  'AKIAVERM24AN74CKN6WT'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_DEFAULT_ACL = 'public-read' # 액세스 관리
+AWS_REGION = 'ap-northeast-2' # 아시아 서울
+AWS_STORAGE_BUCKET_NAME = 'instargramclone'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.%s.amazon.com' % (AWS_STORAGE_BUCKET_NAME, AWS_REGION)
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
