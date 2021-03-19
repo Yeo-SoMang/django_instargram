@@ -115,8 +115,8 @@ USE_L10N = True
 USE_TZ = True
 
 # AWS S3
-AWS_ACCESS_KEY_ID =  'AKIAVERM24AN74CKN6WT'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID =  '*****'
+AWS_SECRET_ACCESS_KEY = '****'
 AWS_DEFAULT_ACL = 'public-read' # 액세스 관리
 AWS_REGION = 'ap-northeast-2' # 아시아 서울
 AWS_STORAGE_BUCKET_NAME = 'instargramclone'
